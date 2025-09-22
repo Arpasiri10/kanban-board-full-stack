@@ -1,16 +1,19 @@
 # Kanban Board System
 
-ระบบ Kanban Board ที่พัฒนาด้วย React + TypeScript + Vite พร้อมฟีเจอร์ครบถ้วนตามข้อกำหนด
+ระบบ Kanban Board ที่พัฒนาด้วย React + TypeScript + Vite 
+พร้อม Backend Server สำหรับจัดการบัญชีผู้ใช้
+
+> หมายเหตุ: Backend ใช้สำหรับ สมัครสมาชิกและล็อกอิน เท่านั้น ข้อมูล Board, Column, Task, และ Notification จะเก็บใน Local Storage ของ browser เหมาะสำหรับ demo หรือใช้งานส่วนตัว
 
 ## ฟีเจอร์หลัก
 
-### ระบบ Authentication
+### ระบบ Authentication (Backend)
 
-- ระบบเข้าสู่ระบบ (Login) พร้อม Mock Users
+- ระบบเข้าสู่ระบบ (Login) สมัครสมาชิกผ่าน backend
 - ระบบออกจากระบบ (Logout)
-- ข้อมูลผู้ใช้ Mock สำหรับการทดสอบ
+- จัดการข้อมูลผู้ใช้
 
-### ระบบจัดการ Board
+### ระบบจัดการ Board (Frontend-Only)
 
 - สร้าง Board ใหม่
 - ลบ Board
@@ -35,7 +38,7 @@
 - สร้างงานใหม่
 - แก้ไขงาน
 - ลบงาน
-- **Drag & Drop** เพื่อย้ายงานระหว่างคอลัมน์
+- Drag & Drop เพื่อย้ายงานระหว่างคอลัมน์
 - เพิ่ม Tags ให้กับงาน
 - มอบหมายงานให้สมาชิก
 - ระบบแจ้งเตือนเมื่อได้รับมอบหมายงาน
@@ -49,18 +52,19 @@
 
 ### ระบบจัดเก็บข้อมูล
 
-- ใช้ Local Storage สำหรับเก็บข้อมูล
+- Board, Column, Task, Notification: เก็บใน Local Storage
 - ข้อมูลจะถูกบันทึกอัตโนมัติ
 - รองรับการรีเฟรชหน้าเว็บ
 
 ## เทคโนโลยีที่ใช้
 
-- **Frontend**: React 19 + TypeScript
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS
-- **Drag & Drop**: @dnd-kit
-- **Icons**: Lucide React
-- **State Management**: React Context + useReducer
+- Frontend: React 19 + TypeScript
+- Backend: Node.js / Express (สำหรับบัญชีผู้ใช้)
+- Build Tool: Vite
+- Styling: Tailwind CSS
+- Drag & Drop: @dnd-kit
+- Icons: Lucide React
+- State Management: React Context + useReducer
 
 ## การติดตั้งและรัน
 
@@ -78,11 +82,14 @@ npm run dev
 
 3. เปิดเบราว์เซอร์ไปที่ `http://localhost:5173`
 
+4. Backend จะรันที่ `http://localhost:4001`
+
 ## การใช้งาน
 
 ### 1. เข้าสู่ระบบ
 
-- ใช้บัญชี Mock ที่มีอยู่แล้ว หรือ
+- สมัครสมาชิกหรือใช้บัญชีที่มีอยู่ใน backend
+- ข้อมูลการล็อกอินจะถูกจัดการโดย backend
 - คลิกปุ่มบัญชีตัวอย่างเพื่อเข้าสู่ระบบทันที
 
 ### 2. สร้าง Board
@@ -90,6 +97,7 @@ npm run dev
 - คลิกปุ่ม "สร้าง Board ใหม่"
 - กรอกชื่อและคำอธิบาย Board
 - คลิก "สร้าง"
+- ข้อมูล Board จะเก็บใน Local Storage
 
 ### 3. จัดการ Board
 
@@ -126,18 +134,3 @@ npm run dev
 - **Keyboard Shortcuts**: รองรับการใช้งานด้วยคีย์บอร์ด
 - **Smooth Animations**: เอฟเฟกต์การเคลื่อนไหวที่นุ่มนวล
 - **Thai Language Support**: รองรับภาษาไทย
-
-## การพัฒนาต่อ
-
-ระบบนี้พร้อมสำหรับการพัฒนาต่อในส่วน:
-
-- Backend API Integration
-- Real-time Collaboration
-- Advanced Permissions
-- File Attachments
-- Time Tracking
-- Advanced Analytics
-
-## License
-
-MIT License
